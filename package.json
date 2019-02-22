@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "universe-landing",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Landing page for universe - finding bindings of ReasonML to JS",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.1.15",
@@ -31,12 +30,5 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
