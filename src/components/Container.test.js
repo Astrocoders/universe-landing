@@ -1,11 +1,13 @@
+import 'jest-dom/extend-expect'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from 'react-testing-library'
 
 import Container from './Container'
 
-describe('Container', () => {
-  it('renders correctly', () => {
-    const tree = renderer.create(<Container />).toJSON()
-    expect(tree).toMatchSnapshot()
+describe('Container test', () => {
+  it('Renders the container correctly', () => {
+    const { container } = render(<Container />)
+    const div = container.querySelector('div')
+    expect(div).toHaveStyle('max-width: 600px')
   })
 })
