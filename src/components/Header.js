@@ -25,7 +25,7 @@ const Box = styled.div`
 
 const LeftBox = styled(Box)`
   justify-content: flex-start;
-  margin-left: 25px;
+  margin-left: 15px;
 `
 
 const LogoWrapper = styled.div`
@@ -63,20 +63,21 @@ const CenterBox = styled(Box)`
 `
 
 const MiddleTextWrapper = styled.div`
-  display: flex;
   font-family: Roboto;
-  font-size: 10px;
+  text-align: center;
+  font-size: 12px;
   color: #ffffff;
-  margin-top: 15px;
-  margin-left: 2px;
-`
+  margin-top: 12px;
+  margin-left: 4px;
 
-const StyledText = styled.p`
-  color: #8773e3;
-  margin-left: 2px;
+  @media (max-width: 1050px) {
+    margin-top: 10px;
+  }
 `
 
 const StyledLink = styled.a`
+  color: #8773e3;
+  margin-left: 2px;
   text-decoration: none;
 `
 
@@ -112,10 +113,10 @@ const Header = props => {
         <StyledVector src={Vector} alt="Vector" />
 
         <MiddleTextWrapper>
-          <p> need development consulting on finantial segment? </p>
-          <StyledLink href={props.hireLink}>
-            <StyledText> Hire us </StyledText>{' '}
-          </StyledLink>
+          <p>
+            Need development consulting on finantial segment?
+            <StyledLink href={props.hireLink}> Hire us </StyledLink>
+          </p>
         </MiddleTextWrapper>
       </CenterBox>
 
