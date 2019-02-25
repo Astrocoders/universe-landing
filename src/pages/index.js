@@ -1,7 +1,24 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Header from '../components/Header'
 
-const IndexPage = () => <Header />
+export default ({ data }) => (
+  <Header
+    hireLink={data.site.siteMetadata.hireLink}
+    bugLink={data.site.siteMetadata.bugLink}
+    githubLink={data.site.siteMetadata.githubLink}
+  />
+)
 
-export default IndexPage
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        hireLink
+        bugLink
+        githubLink
+      }
+    }
+  }
+`
