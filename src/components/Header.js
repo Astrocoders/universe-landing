@@ -26,6 +26,10 @@ const Box = styled.div`
 const LogoWrapper = styled.div`
   margin-left: 13px;
   margin-top: 16px;
+
+  @media (max-width: 515px) {
+    margin-top: 10px;
+  }
 `
 
 const LeftTextWrapper = styled.div`
@@ -37,7 +41,9 @@ const LeftTextWrapper = styled.div`
   color: #ffffff;
 
   @media (max-width: 515px) {
-    margin-top: 7px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 32px;
   }
 `
 
