@@ -23,8 +23,12 @@ const Box = styled.div`
   justify-content: center;
 `
 
+const LeftBox = styled(Box)`
+  justify-content: flex-start;
+  margin-left: 25px;
+`
+
 const LogoWrapper = styled.div`
-  margin-left: 13px;
   margin-top: 16px;
 
   @media (max-width: 515px) {
@@ -33,7 +37,6 @@ const LogoWrapper = styled.div`
 `
 
 const LeftTextWrapper = styled.div`
-  margin-left: 0px;
   margin-top: 14px;
   margin-right: auto;
   font-family: Roboto;
@@ -43,7 +46,7 @@ const LeftTextWrapper = styled.div`
   @media (max-width: 515px) {
     position: absolute;
     margin-top: 25px;
-    margin-left: 32px;
+    margin-left: 72px;
   }
 `
 
@@ -54,7 +57,7 @@ const StyledVector = styled.img`
 `
 
 const CenterBox = styled(Box)`
-  @media (max-width: 845px) {
+  @media (max-width: 870px) {
     display: none;
   }
 `
@@ -95,7 +98,7 @@ const StyledIcon = styled.img`
 const Header = props => {
   return (
     <HeaderWrapper>
-      <Box>
+      <LeftBox>
         <LogoWrapper>
           <img src={Logo} alt="Astrocoders logo" />
         </LogoWrapper>
@@ -103,7 +106,7 @@ const Header = props => {
         <LeftTextWrapper>
           <p> / Open Source </p>
         </LeftTextWrapper>
-      </Box>
+      </LeftBox>
 
       <CenterBox>
         <StyledVector src={Vector} alt="Vector" />
