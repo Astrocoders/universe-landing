@@ -1,7 +1,6 @@
 import 'jest-dom/extend-expect'
 import React from 'react'
 import { render, cleanup } from 'react-testing-library'
-import { create } from 'react-test-renderer'
 import { resizeWindow } from '../utils/utils'
 
 import Header from './Header'
