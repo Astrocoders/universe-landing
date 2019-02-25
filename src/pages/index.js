@@ -1,16 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import Container from '../components/Container'
+import Header from '../components/Header'
 
-const Header = styled.h1`
-  font-family: Roboto;
-`
-
-const IndexPage = () => (
-  <Container>
-    <Header>Hello, World!</Header>
-  </Container>
-)
+const IndexPage = () => <Header />
 
 export default IndexPage
