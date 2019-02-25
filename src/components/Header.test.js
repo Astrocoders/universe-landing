@@ -1,4 +1,4 @@
-import 'jest-dom/exted-expect'
+import 'jest-dom/extend-expect'
 import React from 'react'
 import { render } from 'react-testing-library'
 import { create } from 'react-test-renderer'
@@ -10,13 +10,5 @@ describe('Header test', () => {
     const { container } = render(<Header />)
     const div = container.querySelector('div')
     expect(div).toBeVisible()
-  })
-
-  it('Should recieve props', () => {
-    const header = create(<Header hireLink="hire-link" bugLink="bugLink" githubLink="githubLink" />)
-    const instance = header.getInstance()
-    expect(typeof instance.state.hireLink).toBe('string')
-    expect(typeof instance.state.bugLink).toBe('string')
-    expect(typeof instance.state.githubLink).toBe('string')
   })
 })
