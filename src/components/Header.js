@@ -78,7 +78,6 @@ const RightBox = styled(Box)`
 const RightIconsWrapper = styled.div`
   display: flex;
   margin-top: 15px;
-  margin-right: 20px;
 `
 
 const StyledIcon = styled.img`
