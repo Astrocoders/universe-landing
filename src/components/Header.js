@@ -101,7 +101,7 @@ const Header = props => {
     <HeaderWrapper>
       <LeftBox>
         <LogoWrapper>
-          <img src={Logo} alt="Astrocoders logo" />
+          <img src={Logo} alt="Astrocoders logo" data-testid="logo" />
         </LogoWrapper>
 
         <LeftTextWrapper>
@@ -109,23 +109,26 @@ const Header = props => {
         </LeftTextWrapper>
       </LeftBox>
 
-      <CenterBox>
+      <CenterBox data-testid="center-box">
         <StyledVector src={Vector} alt="Vector" />
 
         <MiddleTextWrapper>
           <p>
             Need development consulting on finantial segment?
-            <StyledLink href={props.hireLink}> Hire us </StyledLink>
+            <StyledLink data-testid="hire-link" href={props.hireLink}>
+              {' '}
+              Hire us{' '}
+            </StyledLink>
           </p>
         </MiddleTextWrapper>
       </CenterBox>
 
       <RightBox>
         <RightIconsWrapper>
-          <a href={props.bugLink}>
+          <a href={props.bugLink} data-testid="bug-link">
             <StyledIcon src={Bug} alt="Bug icon" />{' '}
           </a>
-          <a href={props.githubLink}>
+          <a href={props.githubLink} data-testid="github-link">
             <StyledIcon src={Github} alt="GitHub icon" />{' '}
           </a>
         </RightIconsWrapper>
