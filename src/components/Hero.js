@@ -4,14 +4,11 @@ import styled from 'styled-components'
 import HeroBackground from '../images/hero-background.jpg'
 
 const HeroWrapper = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  left: 0;
-  top: 63px;
   width: 100%;
   height: 259px;
   background-image: url(${HeroBackground});
