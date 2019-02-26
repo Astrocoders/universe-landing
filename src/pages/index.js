@@ -1,16 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
-import Container from '../components/Container'
+import Header from '../components/Header'
 
-const Header = styled.h1`
-  font-family: Roboto;
-`
-
-const IndexPage = () => (
-  <Container>
-    <Header>Hello, World!</Header>
-  </Container>
+export default ({ data }) => (
+  <Header
+    hireLink={data.site.siteMetadata.hireLink}
+    bugLink={data.site.siteMetadata.bugLink}
+    githubLink={data.site.siteMetadata.githubLink}
+  />
 )
 
-export default IndexPage
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        hireLink
+        bugLink
+        githubLink
+      }
+    }
+  }
+`
