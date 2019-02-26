@@ -8,7 +8,6 @@ import Vector from '../images/vector.png'
 
 const HeaderWrapper = styled.div`
   display: flex;
-  flex: 1;
   justify-content: space-between;
   height: 63px;
   width: 100%;
