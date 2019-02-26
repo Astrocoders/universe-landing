@@ -13,6 +13,6 @@ describe('Hero test', () => {
 
     expect(div).toBeVisible()
     expect(getByText('Universe')).toBeVisible()
-    expect(getByText('Find reasonML bullet proof bindings')).toBeVisible()
+    expect(getByText('Find reasonML bulletproof bindings')).toBeVisible()
   })
 })
