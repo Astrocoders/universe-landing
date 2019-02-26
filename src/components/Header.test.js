@@ -33,11 +33,4 @@ describe('Header test', () => {
     expect(getByTestId('bug-link').getAttribute('href')).toBe(props.bugLink)
     expect(getByTestId('github-link').getAttribute('href')).toBe(props.githubLink)
   })
-
-  it('Should not render middle text if window width is <= 870px', () => {
-    const { getByTestId } = render(<Header />)
-    resizeWindow(600, 768)
-
-    expect(getByTestId('center-box')).not.toBeVisible()
-  })
 })
