@@ -9,6 +9,7 @@ const HeroWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   left: 0;
   top: 63px;
   width: 100%;
