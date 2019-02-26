@@ -34,7 +34,7 @@ const Hero = () => {
   return (
     <HeroWrapper>
       <TitleWrapper> Universe </TitleWrapper>
-      <SubtitleWrapper> Find reasonML bulletproof bindings </SubtitleWrapper>
+      <SubtitleWrapper> Find ReasonML bulletproof bindings </SubtitleWrapper>
     </HeroWrapper>
   )
 }
