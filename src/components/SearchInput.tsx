@@ -3,11 +3,7 @@ import styled from 'styled-components'
 
 import SearchIcon from '../images/search-icon.png'
 
-interface IStyledProps {
-  focused: boolean
-}
-
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ focused: boolean }>`
   max-width: 50%;
   height: 76px;
   margin-left: 25%;
@@ -17,8 +13,8 @@ const Wrapper = styled.div`
   justify-content: space-around;
   background-color: #000;
   transition: border 200ms ease-in, width 200ms ease-out;
-  border: 2px solid ${(props: IStyledProps) => (props.focused ? '#8773E3' : '#000')};
-  border-radius: ${(props: IStyledProps) => (props.focused ? '4px' : '0px')};
+  border: 2px solid ${props => (props.focused ? '#8773E3' : '#000')};
+  border-radius: ${props => (props.focused ? '4px' : '0px')};
 `
 
 const SearchIconWrapper = styled.div`
