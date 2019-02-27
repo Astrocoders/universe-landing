@@ -10,15 +10,17 @@
               "singleQuote": true,
               "trailingComma": "all",
               "semi": false,
-              "print-width": 120,
-              "write": true
+              "printWidth": 120
           }
       ],
     "interface-name": false,
     "member-access": [false],
     "ordered-imports": [true],
     "no-var-requires": true,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }

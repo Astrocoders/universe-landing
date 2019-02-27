@@ -1,6 +1,6 @@
 import 'jest-dom/extend-expect'
 import React from 'react'
-import { render, cleanup, fireEvent } from 'react-testing-library'
+import { cleanup, fireEvent, render } from 'react-testing-library'
 
 import SearchInput from './SearchInput'
 

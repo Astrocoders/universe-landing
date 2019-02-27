@@ -17,8 +17,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   background-color: #000;
   transition: border 200ms ease-in, width 200ms ease-out;
-  border: 2px solid
-    ${(props: IStyledProps) => (props.focused ? '#8773E3' : '#000')};
+  border: 2px solid ${(props: IStyledProps) => (props.focused ? '#8773E3' : '#000')};
   border-radius: ${(props: IStyledProps) => (props.focused ? '4px' : '0px')};
 `
 
@@ -61,8 +60,7 @@ interface IProps {
 const SearchInput = (props: IProps) => {
   const [focused, setFocused] = useState(false)
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    props.onChange(event.target.value)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => props.onChange(event.target.value)
 
   return (
     <Wrapper focused={focused}>

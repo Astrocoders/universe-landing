@@ -39,6 +39,7 @@
     "lint": "tslint --fix --project .",
     "test": "jest"
   },
+  "pre-commit": ["type-check", "lint"],
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
