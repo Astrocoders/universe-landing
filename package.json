@@ -4,6 +4,10 @@
   "description": "Landing page for universe - finding bindings of ReasonML to JS",
   "version": "0.1.0",
   "dependencies": {
+    "@types/node": "^11.9.5",
+    "@types/react": "^16.8.5",
+    "@types/react-dom": "^16.8.2",
+    "@types/styled-components": "^4.1.11",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.1.15",
     "gatsby-image": "^2.0.29",
@@ -13,6 +17,7 @@
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.21",
     "gatsby-plugin-styled-components": "^3.0.6",
+    "gatsby-plugin-typescript": "^2.0.9",
     "gatsby-source-filesystem": "^2.0.21",
     "gatsby-transformer-sharp": "^2.1.14",
     "prop-types": "^15.7.2",
@@ -30,19 +35,14 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "lint:staged": "lint-staged",
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --fix --project .",
     "test": "jest"
   },
-  "lint-staged": {
-    "*.{js,json}": [
-      "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
-      "git add"
-    ]
-  },
-  "pre-commit": "lint:staged",
+  "pre-commit": ["type-check", "lint"],
   "jest": {
     "transform": {
-      "^.+\\.jsx?$": "<rootDir>/src/utils/setupJest.js"
+      "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*\\.([tj]sx?)|(\\.|/)(test|spec))\\.([tj]sx?)$",
     "moduleNameMapper": {
@@ -74,6 +74,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@types/jest": "^24.0.9",
     "babel-jest": "^24.1.0",
     "babel-preset-gatsby": "^0.1.8",
     "identity-obj-proxy": "^3.0.0",
@@ -83,6 +84,12 @@
     "pre-commit": "^1.2.2",
     "prettier": "^1.16.4",
     "react-test-renderer": "^16.8.3",
-    "react-testing-library": "^5.9.0"
+    "react-testing-library": "^5.9.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3333"
   }
 }

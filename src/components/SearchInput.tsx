@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import SearchIcon from '../images/search-icon.png'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ focused: boolean }>`
   max-width: 50%;
   height: 76px;
   margin-left: 25%;
@@ -28,6 +28,7 @@ const SearchIconWrapper = styled.div`
 const Input = styled.input`
   background-color: inherit;
   border: none;
+  height: 74px;
   margin-left: 5px;
   width: 90%;
   font-family: Roboto;
@@ -48,10 +49,14 @@ const Input = styled.input`
   }
 `
 
-const SearchInput = props => {
+interface IProps {
+  onChange(input: string): void
+}
+
+const SearchInput = (props: IProps) => {
   const [focused, setFocused] = useState(false)
 
-  const handleChange = event => props.onChange(event.target.value)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => props.onChange(event.target.value)
 
   return (
     <Wrapper focused={focused}>

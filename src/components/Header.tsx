@@ -93,7 +93,13 @@ const StyledIcon = styled.img`
   margin-right: 25px;
 `
 
-const Header = props => {
+export interface IProps {
+  hireLink: string
+  bugLink: string
+  githubLink: string
+}
+
+const Header = (props: IProps) => {
   return (
     <HeaderWrapper>
       <LeftBox>
@@ -113,8 +119,7 @@ const Header = props => {
           <p>
             Need development consulting on finantial segment?
             <StyledLink data-testid="hire-link" href={props.hireLink}>
-              {' '}
-              Hire us{' '}
+              Hire us
             </StyledLink>
           </p>
         </MiddleTextWrapper>
@@ -123,10 +128,10 @@ const Header = props => {
       <RightBox>
         <RightIconsWrapper>
           <a href={props.bugLink} data-testid="bug-link">
-            <StyledIcon src={Bug} alt="Bug icon" />{' '}
+            <StyledIcon src={Bug} alt="Bug icon" />
           </a>
           <a href={props.githubLink} data-testid="github-link">
-            <StyledIcon src={Github} alt="GitHub icon" />{' '}
+            <StyledIcon src={Github} alt="GitHub icon" />
           </a>
         </RightIconsWrapper>
       </RightBox>

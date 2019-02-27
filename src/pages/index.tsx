@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
 import { graphql } from 'gatsby'
+import React, { useState } from 'react'
 
-import { GlobalStyle } from '../theme/globalStyle'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import SearchInput from '../components/SearchInput'
+import { GlobalStyle } from '../theme/globalStyle'
 
-export default ({ data }) => {
+interface IQueryProps {
+  data: {
+    site: {
+      siteMetadata: {
+        hireLink: string
+        bugLink: string
+        githubLink: string
+      }
+    }
+  }
+}
+
+export default ({ data }: IQueryProps) => {
   const [input, setInput] = useState('')
 
   return (

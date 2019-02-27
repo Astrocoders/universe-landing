@@ -1,15 +1,20 @@
 import 'jest-dom/extend-expect'
 import React from 'react'
-import { render, cleanup } from 'react-testing-library'
-import { resizeWindow } from '../utils/utils'
+import { cleanup, render } from 'react-testing-library'
 
-import Header from './Header'
+import Header, { IProps } from './Header'
 
 afterEach(cleanup)
 
+const props: IProps = {
+  hireLink: 'hire-link',
+  bugLink: 'bug-link',
+  githubLink: 'github-link',
+}
+
 describe('Header test', () => {
   it('Renders the header correctly', () => {
-    const { container, getByTestId } = render(<Header />)
+    const { container, getByTestId } = render(<Header {...props} />)
     const div = container.querySelector('div')
 
     expect(div).toBeVisible()
@@ -21,12 +26,6 @@ describe('Header test', () => {
   })
 
   it('Receives the right props', () => {
-    const props = {
-      hireLink: 'hire-link',
-      bugLink: 'bug-link',
-      githubLink: 'github-link',
-    }
-
     const { getByTestId } = render(<Header {...props} />)
 
     expect(getByTestId('hire-link').getAttribute('href')).toBe(props.hireLink)
