@@ -41,7 +41,7 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.tsx?$": "<rootDir>/src/utils/setupJest.js"
+      "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*\\.([tj]sx?)|(\\.|/)(test|spec))\\.([tj]sx?)$",
     "moduleNameMapper": {
@@ -73,6 +73,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@types/jest": "^24.0.9",
     "babel-jest": "^24.1.0",
     "babel-preset-gatsby": "^0.1.8",
     "identity-obj-proxy": "^3.0.0",

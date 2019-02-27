@@ -19,7 +19,7 @@ describe('SearchInput test', () => {
   it('Should call onChange with the value from the input', () => {
     const handleChange = jest.fn()
     const { getByTestId } = render(<SearchInput onChange={handleChange} />)
-    const input = getByTestId('search-input')
+    const input = getByTestId('search-input') as HTMLInputElement
 
     fireEvent.change(input, { target: { value: 'Howdy!' } })
     expect(handleChange).toHaveBeenCalled()

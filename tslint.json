@@ -15,7 +15,6 @@
           }
       ],
     "interface-name": false,
-    "semicolon": [true, "never"],
     "member-access": [false],
     "ordered-imports": [true],
     "no-var-requires": true,
