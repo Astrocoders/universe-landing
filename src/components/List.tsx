@@ -1,5 +1,5 @@
 import { map } from 'ramda'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
@@ -16,10 +16,14 @@ const Background = styled.div`
   z-index: -1;
 `
 
+const ListWrapper = styled.div`
+  margin-top: 80px;
+  width: 70%;
+`
+
 const StyledFlipper = styled(Flipper)`
   && {
-    margin-top: 80px;
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -48,23 +52,27 @@ const MockListItem = (props: { id: number }) => (
 
 const List = () => {
   const [items, setItems] = useState(Array.from(Array(8).keys()))
+  const savedCallback = useRef();
 
   useEffect(() => {
-    setInterval(() => {
+    let id = setInterval(() => {
       setItems(shuffle(items).slice())
     }, 4000)
+    return () => clearInterval(id);
   }, [])
 
   return (
     <Background>
-      <StyledFlipper flipKey={items.join('')}>
-        {map(
-          item => (
-            <MockListItem id={item} key={item} />
-          ),
-          items,
-        )}
-      </StyledFlipper>
+      <ListWrapper>
+        <StyledFlipper flipKey={items.join('')}>
+          {map(
+            item => (
+              <MockListItem id={item} key={item} />
+            ),
+            items,
+          )}
+        </StyledFlipper>
+      </ListWrapper>
     </Background>
   )
 }
