@@ -1,5 +1,5 @@
 import { map } from 'ramda'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
@@ -52,13 +52,13 @@ const MockListItem = (props: { id: number }) => (
 
 const List = () => {
   const [items, setItems] = useState(Array.from(Array(8).keys()))
-  const savedCallback = useRef();
+  const savedCallback = useRef()
 
   useEffect(() => {
-    let id = setInterval(() => {
+    const id = setInterval(() => {
       setItems(shuffle(items).slice())
     }, 4000)
-    return () => clearInterval(id);
+    return () => clearInterval(id)
   }, [])
 
   return (
