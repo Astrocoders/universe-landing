@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import List from '../components/List'
@@ -33,6 +34,7 @@ export default ({ data }: IQueryProps) => {
       <Hero />
       <SearchInput onChange={setInput} />
       <List />
+      <Footer />
     </div>
   )
 }
