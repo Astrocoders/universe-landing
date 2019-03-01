@@ -40,12 +40,13 @@
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "lint": "tslint --fix --project .",
+    "lint:staged": "lint-staged",
     "test": "jest"
   },
-  "pre-commit": [
-    "type-check",
-    "lint"
-  ],
+  "pre-commit": ["type-check", "lint:staged"],
+  "lint-staged": {
+    "*.{ts,tsx,.test.tsx}": ["npm run lint", "git add"]
+  },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"

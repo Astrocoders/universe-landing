@@ -8,7 +8,8 @@ afterEach(cleanup)
 
 const props: IProps = {
   title: "ListItem's title",
-  description: "ListItem's description"
+  description: "ListItem's description",
+  id: 42,
 }
 
 describe('ListItem test', () => {
