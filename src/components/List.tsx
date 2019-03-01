@@ -4,6 +4,7 @@ import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
 import shuffle from '../utils/shuffleArray'
+import ListItem from './ListItem'
 
 const Background = styled.div`
   position: relative;
@@ -30,28 +31,17 @@ const StyledFlipper = styled(Flipper)`
   }
 `
 
-const Card = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: #fff;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-const MockListItem = (props: { id: number }) => (
-  // This one is just for test purposses, I'll remove it later when ListItem is done
-  <Flipped flipId={props.id.toString()}>
-    <Card>
-      {' '}
-      <h1> {props.id} </h1>{' '}
-    </Card>
-  </Flipped>
-)
-
 const List = () => {
-  const [items, setItems] = useState(Array.from(Array(8).keys()))
+  const [items, setItems] = useState([
+    { title: 'Title1', description: 'description 1', id: 1 },
+    { title: 'Title2', description: 'description 2', id: 2 },
+    { title: 'Title3', description: 'description 3', id: 3 },
+    { title: 'Title4', description: 'description 4', id: 4 },
+    { title: 'Title5', description: 'description 5', id: 5 },
+    { title: 'Title6', description: 'description 6', id: 6 },
+    { title: 'Title7', description: 'description 7', id: 7 },
+    { title: 'Title8', description: 'description 8', id: 8 },
+  ])
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -63,10 +53,10 @@ const List = () => {
   return (
     <Background>
       <ListWrapper>
-        <StyledFlipper flipKey={items.join('')}>
+        <StyledFlipper flipKey={map(item => item.id, items).join('')}>
           {map(
             item => (
-              <MockListItem id={item} key={item} />
+              <ListItem title={item.title} description={item.description} id={item.id} key={item.id} />
             ),
             items,
           )}
