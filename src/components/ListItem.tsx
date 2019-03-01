@@ -3,13 +3,22 @@ import { Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
 const Card = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
+  padding: 20px;
   background-color: #fff;
   margin: 5px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
   font-family: Roboto;
+
+  &:hover {
+    box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.75);
+     {
+      /* not working for some reason */
+    }
+  }
 `
 
 const CardTitle = styled.div`
@@ -19,7 +28,7 @@ const CardTitle = styled.div`
 `
 
 const CardDescription = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   color: #afafaf;
 `
 

@@ -1,4 +1,4 @@
-const shuffle = (array: number[]) => {
+const shuffle = (array: any[]) => {
   const newArray = array.slice()
 
   for (let i = array.length - 1; i > 0; i--) {
