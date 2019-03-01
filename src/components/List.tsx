@@ -11,7 +11,6 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
   width: 100%;
   margin-top: -42px;
   z-index: -1;
