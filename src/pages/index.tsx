@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 import Header from '../components/Header'
 import Hero from '../components/Hero'
+import List from '../components/List'
 import SearchInput from '../components/SearchInput'
 import { GlobalStyle } from '../theme/globalStyle'
 
@@ -31,6 +32,7 @@ export default ({ data }: IQueryProps) => {
       />
       <Hero />
       <SearchInput onChange={setInput} />
+      <List />
     </div>
   )
 }
