@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import { filter } from 'ramda'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import SearchIcon from '../images/search-icon.png'
+import { IPackage } from '../pages/index'
 
 const Wrapper = styled.div<{ focused: boolean }>`
   max-width: 50%;
@@ -49,14 +51,30 @@ const Input = styled.input`
   }
 `
 
-interface IProps {
+export interface IProps {
+  input: string
+  items: IPackage[]
   onChange(input: string): void
+  setItems(items: IPackage[]): void
 }
 
 const SearchInput = (props: IProps) => {
   const [focused, setFocused] = useState(false)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => props.onChange(event.target.value)
+
+  const filterPackages = () => {
+    props.setItems(
+      filter(item => {
+        const title = item.title.toLowerCase()
+        const description = item.description.toLowerCase()
+        const input = props.input.toLowerCase()
+
+        return title.includes(input) || description.includes(input)
+      }, props.items),
+    )
+  }
+  useEffect(filterPackages, [props.input])
 
   return (
     <Wrapper focused={focused}>

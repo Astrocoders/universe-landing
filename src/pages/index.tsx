@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import List from '../components/List'
 import SearchInput from '../components/SearchInput'
+import packages from '../packages'
 import { GlobalStyle } from '../theme/globalStyle'
 
 interface IQueryProps {
@@ -20,8 +21,16 @@ interface IQueryProps {
   }
 }
 
-export default ({ data }: IQueryProps) => {
+export interface IPackage {
+  title: string
+  description: string
+  id: number
+}
+
+const Home = ({ data }: IQueryProps) => {
   const [input, setInput] = useState('')
+  const [items, setItems] = useState(packages)
+  const [filteredItems, setFilteredItems] = useState(packages)
 
   return (
     <div>
@@ -32,8 +41,8 @@ export default ({ data }: IQueryProps) => {
         githubLink={data.site.siteMetadata.githubLink}
       />
       <Hero />
-      <SearchInput onChange={setInput} />
-      <List />
+      <SearchInput input={input} onChange={setInput} items={items} setItems={setFilteredItems} />
+      <List input={input} items={filteredItems} />
       <Footer />
     </div>
   )
@@ -50,3 +59,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Home
