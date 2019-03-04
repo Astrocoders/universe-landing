@@ -4,7 +4,6 @@ import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
 import { IPackage } from '../pages/index'
-import shuffle from '../utils/shuffleArray'
 import ListItem from './ListItem'
 
 const Background = styled.div`
