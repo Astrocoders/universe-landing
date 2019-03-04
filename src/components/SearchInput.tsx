@@ -67,7 +67,7 @@ const SearchInput = (props: IProps) => {
     props.setItems(
       filter(item => {
         const title = item.title.toLowerCase()
-        const description = item.description.toLowerCase()
+        const description = item.description ? item.description.toLowerCase() : ''
         const input = props.input.toLowerCase()
 
         return title.includes(input) || description.includes(input)

@@ -1,5 +1,7 @@
+import axios from 'axios'
 import { graphql } from 'gatsby'
-import React, { useState } from 'react'
+import { map } from 'ramda'
+import React, { useEffect, useState } from 'react'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -24,13 +26,49 @@ export interface IQueryProps {
 export interface IPackage {
   title: string
   description: string
-  id: number
+  id: string
+  url: string
 }
 
 const Home = ({ data }: IQueryProps) => {
   const [input, setInput] = useState('')
-  const [items, setItems] = useState(packages)
-  const [filteredItems, setFilteredItems] = useState(packages)
+  const [items, setItems] = useState<IPackage[]>([])
+  const [filteredItems, setFilteredItems] = useState<IPackage[]>([])
+
+  const fetchData = async () => {
+    const result = await axios({
+      method: 'post',
+      url: 'https://api.github.com/graphql',
+      headers: { Authorization: 'bearer e4ed0fb51ef797f89549da18ac1e41cab26415ee' },
+      data: {
+        query: `
+          query {
+            organization(login: "astrocoders") {
+              repositories(first: 100) {
+                nodes {
+                  name
+                  description
+                  id
+                  url
+                }
+              }
+            }
+        }
+        `,
+      },
+    })
+
+    const fetchedItems: IPackage[] = map(
+      repo => ({ title: repo.name, description: repo.description, id: repo.id, url: repo.url }),
+      result.data.data.organization.repositories.nodes,
+    )
+
+    setItems(fetchedItems)
+    setFilteredItems(fetchedItems)
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <div>
@@ -42,7 +80,7 @@ const Home = ({ data }: IQueryProps) => {
       />
       <Hero />
       <SearchInput input={input} onChange={setInput} items={items} setItems={setFilteredItems} />
-      <List input={input} items={filteredItems} />
+      <List items={filteredItems} />
       <Footer />
     </div>
   )

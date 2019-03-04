@@ -13,12 +13,10 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: -42px;
-  z-index: -1;
 `
 
 const ListWrapper = styled.div`
-  margin-top: 80px;
+  margin-top: 38px;
   width: 70%;
   min-height: 460px;
 `
@@ -33,7 +31,6 @@ const StyledFlipper = styled(Flipper)`
 `
 
 interface IProps {
-  input: string
   items: IPackage[]
 }
 
@@ -44,7 +41,7 @@ const List = (props: IProps) => {
         <StyledFlipper flipKey={map(item => item.title, props.items).join('')}>
           {map(
             item => (
-              <ListItem title={item.title} description={item.description} id={item.id} key={item.id} />
+              <ListItem title={item.title} description={item.description} id={item.id} url={item.url} key={item.id} />
             ),
             props.items,
           )}

@@ -2,7 +2,10 @@ import React from 'react'
 import { Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
-const Card = styled.div`
+import { IPackage } from '../pages/index'
+import truncate from '../utils/truncate'
+
+const Card = styled.a`
   width: 180px;
   height: 180px;
   padding: 20px;
@@ -12,12 +15,10 @@ const Card = styled.div`
   flex-direction: column;
   align-content: center;
   font-family: Roboto;
+  text-decoration: none;
 
   &:hover {
-    box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.75);
-     {
-      /* not working for some reason */
-    }
+    box-shadow: 0px 0px 0px 2px rgba(135, 115, 227, 1);
   }
 `
 
@@ -32,21 +33,15 @@ const CardDescription = styled.div`
   color: #afafaf;
 `
 
-export interface IProps {
-  title: string
-  description: string
-  id: number
-}
-
-const ListItem = (props: IProps) => {
+const ListItem = (props: IPackage) => {
   return (
-    <Flipped flipId={props.id.toString()}>
-      <Card data-testid="list-item">
+    <Flipped flipId={props.id}>
+      <Card data-testid="list-item" href={props.url}>
         <CardTitle>
           <p> {props.title} </p>
         </CardTitle>
         <CardDescription>
-          <p> {props.description} </p>
+          <p> {props.description ? truncate(props.description, 80) : ''} </p>
         </CardDescription>
       </Card>
     </Flipped>
