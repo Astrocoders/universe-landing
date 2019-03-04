@@ -3,7 +3,7 @@ import React from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
-import { IPackage } from '../pages/index'
+import { IPackage } from '../utils/data'
 import ListItem from './ListItem'
 
 const Background = styled.div`

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import SearchIcon from '../images/search-icon.png'
-import { IPackage } from '../pages/index'
+import { IPackage } from '../utils/data'
 
 const Wrapper = styled.div<{ focused: boolean }>`
   max-width: 50%;

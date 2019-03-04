@@ -2,7 +2,7 @@ import React from 'react'
 import { Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
-import { IPackage } from '../pages/index'
+import { IPackage } from '../utils/data'
 import truncate from '../utils/truncate'
 
 const Card = styled.a`
