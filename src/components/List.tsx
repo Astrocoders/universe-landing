@@ -40,7 +40,7 @@ interface IProps {
 const List = (props: IProps) => {
   return (
     <Background>
-      <ListWrapper>
+      <ListWrapper data-testid="list">
         <StyledFlipper flipKey={map(item => item.title, props.items).join('')}>
           {map(
             item => (

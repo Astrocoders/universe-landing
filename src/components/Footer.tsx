@@ -27,7 +27,7 @@ const TextWrapper = styled.div`
 
 const Footer = () => {
   return (
-    <Wrapper>
+    <Wrapper data-testid="footer">
       <LogoWrapper data-testid="logo" />
       <TextWrapper>
         {' '}

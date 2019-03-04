@@ -101,7 +101,7 @@ export interface IProps {
 
 const Header = (props: IProps) => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper data-testid="header">
       <LeftBox>
         <LogoWrapper>
           <img src={Logo} alt="Astrocoders logo" data-testid="logo" />

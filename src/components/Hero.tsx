@@ -29,7 +29,7 @@ const SubtitleWrapper = styled(TitleWrapper)`
 
 const Hero = () => {
   return (
-    <HeroWrapper>
+    <HeroWrapper data-testid="hero">
       <TitleWrapper> Universe </TitleWrapper>
       <SubtitleWrapper> Find ReasonML bulletproof bindings </SubtitleWrapper>
     </HeroWrapper>

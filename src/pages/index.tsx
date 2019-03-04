@@ -9,7 +9,7 @@ import SearchInput from '../components/SearchInput'
 import packages from '../packages'
 import { GlobalStyle } from '../theme/globalStyle'
 
-interface IQueryProps {
+export interface IQueryProps {
   data: {
     site: {
       siteMetadata: {

@@ -77,7 +77,7 @@ const SearchInput = (props: IProps) => {
   useEffect(filterPackages, [props.input])
 
   return (
-    <Wrapper focused={focused}>
+    <Wrapper focused={focused} data-testid="input">
       <SearchIconWrapper data-testid="search-icon" />
       <Input
         placeholder="Search bindings"
