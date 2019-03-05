@@ -1,5 +1,5 @@
 import { map } from 'ramda'
-import React from 'react'
+import React, { useState } from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
@@ -7,17 +7,20 @@ import { IPackage } from '../utils/data'
 import ListItem from './ListItem'
 
 const Background = styled.div`
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 `
 
-const ListWrapper = styled.div`
+const ListWrapper = styled.div<{ expanded: boolean }>`
   margin-top: 38px;
   width: 70%;
   min-height: 460px;
+  transition: max-height 0.5s ease-in-out;
+  overflow: ${props => (props.expanded ? 'none' : 'hidden')};
+  max-height: ${props => (props.expanded ? '999em' : '460px')};
 `
 
 const StyledFlipper = styled(Flipper)`
@@ -29,14 +32,35 @@ const StyledFlipper = styled(Flipper)`
   }
 `
 
+const ExpandButton = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8773e3;
+  width: 70%;
+  height: 40px;
+  background-color: rgba(135, 115, 227, 0.2);
+  margin-top: 20px;
+  border-radius: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
 interface IProps {
   items: IPackage[]
 }
 
 const List = (props: IProps) => {
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <Background>
-      <ListWrapper data-testid="list">
+      <ListWrapper data-testid="list" expanded={expanded}>
         <StyledFlipper flipKey={map(item => item.title, props.items).join('')}>
           {map(
             item => (
@@ -46,6 +70,9 @@ const List = (props: IProps) => {
           )}
         </StyledFlipper>
       </ListWrapper>
+      <ExpandButton onClick={() => setExpanded(!expanded)}>
+        <p> {expanded ? 'Hide' : 'Show all'} </p>
+      </ExpandButton>
     </Background>
   )
 }
