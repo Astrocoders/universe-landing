@@ -84,13 +84,18 @@ const RightBox = styled(Box)`
 
 const RightIconsWrapper = styled.div`
   display: flex;
-  margin-top: 15px;
 `
 
-const StyledIcon = styled.img`
-  width: 32px;
-  height: 32px;
-  margin-right: 25px;
+const StyledIcon = styled.div`
+  background-image: url(${(props: { src: any }) => props.src});
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 63px;
+  height: 63px;
+
+  &:hover {
+    background-color: #8773e3;
+  }
 `
 
 export interface IProps {
@@ -128,10 +133,10 @@ const Header = (props: IProps) => {
       <RightBox>
         <RightIconsWrapper>
           <a href={props.bugLink} data-testid="bug-link">
-            <StyledIcon src={Bug} alt="Bug icon" />
+            <StyledIcon src={Bug} />
           </a>
           <a href={props.githubLink} data-testid="github-link">
-            <StyledIcon src={Github} alt="GitHub icon" />
+            <StyledIcon src={Github} />
           </a>
         </RightIconsWrapper>
       </RightBox>
