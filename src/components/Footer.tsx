@@ -21,18 +21,16 @@ const LogoWrapper = styled.div`
 
 const TextWrapper = styled.div`
   font-family: Roboto;
-  font-size: 10px;
+  font-size: 12px;
   color: #8773e3;
+  margin-top: 8px;
 `
 
 const Footer = () => {
   return (
     <Wrapper data-testid="footer">
       <LogoWrapper data-testid="logo" />
-      <TextWrapper>
-        {' '}
-        <p> we are hiring! </p>{' '}
-      </TextWrapper>
+      <TextWrapper> we are hiring! </TextWrapper>
     </Wrapper>
   )
 }
