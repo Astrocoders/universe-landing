@@ -2,14 +2,13 @@ import 'jest-dom/extend-expect'
 import React from 'react'
 import { cleanup, fireEvent, render } from 'react-testing-library'
 
-import packages from '../packages'
 import SearchInput, { IProps } from './SearchInput'
 
 afterEach(cleanup)
 
 const props = {
   input: '',
-  items: packages,
+  items: [],
   setItems: jest.fn(),
 }
 

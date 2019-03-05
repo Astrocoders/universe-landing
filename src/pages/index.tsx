@@ -23,12 +23,7 @@ export interface IQueryProps {
   }
 }
 
-type setItemsFunc = (items: IPackage[]) => void
-export interface IProps {
-  fetchData(setItems: setItemsFunc, setFilteredItems: setItemsFunc): void
-}
-
-const Home = ({ data }: IQueryProps, props: IProps) => {
+const Home = ({ data }: IQueryProps) => {
   const [input, setInput] = useState('')
   const [items, setItems] = useState<IPackage[]>([])
   const [filteredItems, setFilteredItems] = useState<IPackage[]>([])
