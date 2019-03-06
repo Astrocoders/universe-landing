@@ -9,7 +9,7 @@ export interface IPackage {
 }
 
 type setItemsFunc = (items: IPackage[]) => void
-const fetchData = async (setData: setItemsFunc, setFilteredData: setItemsFunc) => {
+export const fetchData = async (setData: setItemsFunc, setFilteredData: setItemsFunc) => {
   const result = await axios({
     method: 'post',
     url: 'https://api.github.com/graphql',
@@ -40,5 +40,3 @@ const fetchData = async (setData: setItemsFunc, setFilteredData: setItemsFunc) =
   setData(data)
   setFilteredData(data)
 }
-
-export default fetchData

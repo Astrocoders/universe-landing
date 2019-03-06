@@ -9,7 +9,7 @@ import Hero from '../components/Hero'
 import List from '../components/List'
 import SearchInput from '../components/SearchInput'
 import { GlobalStyle } from '../theme/globalStyle'
-import fetchData, { IPackage } from '../utils/data'
+import { fetchData, IPackage } from '../utils/data'
 
 export interface IQueryProps {
   data: {
