@@ -17,7 +17,6 @@ const HeroWrapper = styled.div`
 `
 
 const TitleWrapper = styled.div`
-  font-family: Roboto;
   font-weight: bold;
   font-size: 64px;
   color: #fff;

@@ -36,7 +36,6 @@ const ExpandButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Roboto;
   font-size: 14px;
   font-weight: bold;
   color: #8773e3;

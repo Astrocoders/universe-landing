@@ -14,7 +14,6 @@ const Card = styled.a`
   display: flex;
   flex-direction: column;
   align-content: center;
-  font-family: Roboto;
   text-decoration: none;
 
   &:hover {

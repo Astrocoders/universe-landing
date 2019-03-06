@@ -5,5 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     background-color: #e5e5e5;
+    font-family: Roboto;
+    font-size: 12px;
   }
 `

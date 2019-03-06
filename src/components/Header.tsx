@@ -36,8 +36,6 @@ const LogoWrapper = styled.div`
 const LeftTextWrapper = styled.div`
   margin-top: 14px;
   margin-right: auto;
-  font-family: Roboto;
-  font-size: 12px;
   color: #ffffff;
 
   @media (max-width: 515px) {
@@ -60,9 +58,7 @@ const CenterBox = styled(Box)`
 `
 
 const MiddleTextWrapper = styled.div`
-  font-family: Roboto;
   text-align: center;
-  font-size: 12px;
   color: #ffffff;
   margin-top: 12px;
   margin-left: 4px;

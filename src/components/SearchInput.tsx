@@ -33,7 +33,6 @@ const Input = styled.input`
   height: 74px;
   margin-left: 5px;
   width: 90%;
-  font-family: Roboto;
   font-size: 16px;
   color: #fff;
 
