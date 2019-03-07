@@ -20,7 +20,7 @@ const ListWrapper = styled.div<{ expanded: boolean }>`
   min-height: 460px;
   transition: max-height 0.5s ease-in-out;
   overflow: ${props => (props.expanded ? 'none' : 'hidden')};
-  max-height: ${props => (props.expanded ? '999em' : '460px')};
+  max-height: ${props => (props.expanded ? 'auto' : '460px')};
 `
 
 const StyledFlipper = styled(Flipper)`
