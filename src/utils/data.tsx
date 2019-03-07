@@ -13,7 +13,7 @@ export const fetchData = async (setData: setItemsFunc, setFilteredData: setItems
   const result = await axios({
     method: 'post',
     url: 'https://api.github.com/graphql',
-    headers: { Authorization: 'bearer e4ed0fb51ef797f89549da18ac1e41cab26415ee' },
+    headers: { Authorization: `bearer dbfbc99985a0031582ffabc4562e58c4a48d80fe` },
     data: {
       query: `
         query {
