@@ -1,5 +1,7 @@
+import axios from 'axios'
 import { graphql } from 'gatsby'
-import React, { useState } from 'react'
+import { map } from 'ramda'
+import React, { useEffect, useState } from 'react'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -7,8 +9,9 @@ import Hero from '../components/Hero'
 import List from '../components/List'
 import SearchInput from '../components/SearchInput'
 import { GlobalStyle } from '../theme/globalStyle'
+import { fetchData, IPackage } from '../utils/data'
 
-interface IQueryProps {
+export interface IQueryProps {
   data: {
     site: {
       siteMetadata: {
@@ -20,8 +23,14 @@ interface IQueryProps {
   }
 }
 
-export default ({ data }: IQueryProps) => {
+const Home = ({ data }: IQueryProps) => {
   const [input, setInput] = useState('')
+  const [items, setItems] = useState<IPackage[]>([])
+  const [filteredItems, setFilteredItems] = useState<IPackage[]>([])
+
+  useEffect(() => {
+    fetchData(setItems, setFilteredItems)
+  }, [])
 
   return (
     <div>
@@ -32,8 +41,8 @@ export default ({ data }: IQueryProps) => {
         githubLink={data.site.siteMetadata.githubLink}
       />
       <Hero />
-      <SearchInput onChange={setInput} />
-      <List />
+      <SearchInput input={input} onChange={setInput} items={items} setItems={setFilteredItems} />
+      <List items={filteredItems} />
       <Footer />
     </div>
   )
@@ -50,3 +59,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Home

@@ -17,7 +17,6 @@ const HeroWrapper = styled.div`
 `
 
 const TitleWrapper = styled.div`
-  font-family: Roboto;
   font-weight: bold;
   font-size: 64px;
   color: #fff;
@@ -29,7 +28,7 @@ const SubtitleWrapper = styled(TitleWrapper)`
 
 const Hero = () => {
   return (
-    <HeroWrapper>
+    <HeroWrapper data-testid="hero">
       <TitleWrapper> Universe </TitleWrapper>
       <SubtitleWrapper> Find ReasonML bulletproof bindings </SubtitleWrapper>
     </HeroWrapper>

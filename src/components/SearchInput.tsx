@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import { filter } from 'ramda'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import SearchIcon from '../images/search-icon.png'
+import { IPackage } from '../utils/data'
 
 const Wrapper = styled.div<{ focused: boolean }>`
   max-width: 50%;
@@ -31,7 +33,6 @@ const Input = styled.input`
   height: 74px;
   margin-left: 5px;
   width: 90%;
-  font-family: Roboto;
   font-size: 16px;
   color: #fff;
 
@@ -49,8 +50,11 @@ const Input = styled.input`
   }
 `
 
-interface IProps {
+export interface IProps {
+  input: string
+  items: IPackage[]
   onChange(input: string): void
+  setItems(items: IPackage[]): void
 }
 
 const SearchInput = (props: IProps) => {
@@ -58,8 +62,21 @@ const SearchInput = (props: IProps) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => props.onChange(event.target.value)
 
+  const filterPackages = () => {
+    props.setItems(
+      filter(item => {
+        const title = item.title.toLowerCase()
+        const description = item.description ? item.description.toLowerCase() : ''
+        const input = props.input.toLowerCase()
+
+        return title.includes(input) || description.includes(input)
+      }, props.items),
+    )
+  }
+  useEffect(filterPackages, [props.input])
+
   return (
-    <Wrapper focused={focused}>
+    <Wrapper focused={focused} data-testid="input">
       <SearchIconWrapper data-testid="search-icon" />
       <Input
         placeholder="Search bindings"

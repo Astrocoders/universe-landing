@@ -1,24 +1,26 @@
 import { map } from 'ramda'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
-import shuffle from '../utils/shuffleArray'
+import { IPackage } from '../utils/data'
 import ListItem from './ListItem'
 
 const Background = styled.div`
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: -42px;
-  z-index: -1;
 `
 
-const ListWrapper = styled.div`
-  margin-top: 80px;
+const ListWrapper = styled.div<{ expanded: boolean }>`
+  margin-top: 38px;
   width: 70%;
+  min-height: 460px;
+  transition: max-height 0.5s ease-in-out;
+  overflow: ${props => (props.expanded ? 'none' : 'hidden')};
+  max-height: ${props => (props.expanded ? 'auto' : '460px')};
 `
 
 const StyledFlipper = styled(Flipper)`
@@ -30,37 +32,46 @@ const StyledFlipper = styled(Flipper)`
   }
 `
 
-const List = () => {
-  const [items, setItems] = useState([
-    { title: 'Title1', description: 'description 1', id: 1 },
-    { title: 'Title2', description: 'description 2', id: 2 },
-    { title: 'Title3', description: 'description 3', id: 3 },
-    { title: 'Title4', description: 'description 4', id: 4 },
-    { title: 'Title5', description: 'description 5', id: 5 },
-    { title: 'Title6', description: 'description 6', id: 6 },
-    { title: 'Title7', description: 'description 7', id: 7 },
-    { title: 'Title8', description: 'description 8', id: 8 },
-  ])
+const ExpandButton = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8773e3;
+  width: 70%;
+  height: 40px;
+  background-color: rgba(135, 115, 227, 0.2);
+  margin-top: 20px;
+  border-radius: 20px;
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setItems(shuffle(items).slice())
-    }, 4000)
-    return () => clearInterval(id)
-  }, [])
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+interface IProps {
+  items: IPackage[]
+}
+
+const List = (props: IProps) => {
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <Background>
-      <ListWrapper>
-        <StyledFlipper flipKey={map(item => item.id, items).join('')}>
+      <ListWrapper data-testid="list" expanded={expanded}>
+        <StyledFlipper flipKey={map(item => item.title, props.items).join('')}>
           {map(
             item => (
-              <ListItem title={item.title} description={item.description} id={item.id} key={item.id} />
+              <ListItem title={item.title} description={item.description} id={item.id} url={item.url} key={item.id} />
             ),
-            items,
+            props.items,
           )}
         </StyledFlipper>
       </ListWrapper>
+      <ExpandButton onClick={() => setExpanded(!expanded)}>
+        <p> {expanded ? 'Hide' : 'Show all'} </p>
+      </ExpandButton>
     </Background>
   )
 }

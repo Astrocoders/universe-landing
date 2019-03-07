@@ -9,30 +9,26 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 10px;
   height: 63px;
 `
 
-const LogoWrapper = styled.div`
-  width: 29px;
-  height: 29px;
-  background-image: url(${Logo});
-  background-size: cover;
-`
-
 const TextWrapper = styled.div`
-  font-family: Roboto;
-  font-size: 10px;
-  color: #8773e3;
+  font-weight: bold;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
 `
 
 const Footer = () => {
   return (
-    <Wrapper>
-      <LogoWrapper data-testid="logo" />
-      <TextWrapper>
-        {' '}
-        <p> we are hiring! </p>{' '}
-      </TextWrapper>
+    <Wrapper data-testid="footer">
+      <TextWrapper> WE ARE HIRING! </TextWrapper>
     </Wrapper>
   )
 }
