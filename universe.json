@@ -7,10 +7,5 @@
   {
     "title": "bs-graphql",
     "url": "https://github.com/Astrocoders/bs-universe/tree/master/bs-graphql"
-  },
-  {
-    "title": "universe-landing",
-    "description": "Landing page for universe - finding bindings of ReasonML to JS",
-    "url": "https://github.com/Astrocoders/bs-universe/tree/master/universe-landing"
   }
 ]
