@@ -56,6 +56,7 @@ export const query = graphql`
         hireLink
         bugLink
         githubLink
+        weAreHiringLink
       }
     }
   }
