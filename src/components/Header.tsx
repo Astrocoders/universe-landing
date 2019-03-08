@@ -118,7 +118,7 @@ const Header = (props: IProps) => {
 
         <MiddleTextWrapper>
           <p>
-            Need development consulting on finantial segment?
+            Need development consulting on financial segment?
             <StyledLink data-testid="hire-link" href={props.hireLink}>
               Hire us
             </StyledLink>
