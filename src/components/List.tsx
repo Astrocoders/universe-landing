@@ -40,7 +40,6 @@ const TextWrapper = styled.div`
   font-size: 32px;
   font-weight: bold;
   color: #5c5c5c;
-  border-radius: 20px;
 `
 
 const ExpandButton = styled.a`
