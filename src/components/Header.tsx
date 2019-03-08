@@ -70,7 +70,7 @@ const MiddleTextWrapper = styled.div`
 
 const StyledLink = styled.a`
   color: #8773e3;
-  margin-left: 2px;
+  margin-left: 10px;
   text-decoration: none;
 `
 
