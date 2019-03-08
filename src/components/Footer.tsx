@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Logo from '../images/astro-logo-micro.png'
 
 const Wrapper = styled.div`
+  position: sticky;
+  bottom: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
