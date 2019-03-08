@@ -40,7 +40,7 @@ export interface IProps {
 const Footer = (props: IProps) => {
   return (
     <Wrapper data-testid="footer">
-      <TextWrapper href="props.link"> WE ARE HIRING! </TextWrapper>
+      <TextWrapper href={props.link}> WE ARE HIRING! </TextWrapper>
     </Wrapper>
   )
 }
