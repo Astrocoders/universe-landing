@@ -18,6 +18,7 @@ export interface IQueryProps {
         hireLink: string
         bugLink: string
         githubLink: string
+        weAreHiringLink: string
       }
     }
   }
@@ -43,7 +44,7 @@ const Home = ({ data }: IQueryProps) => {
       <Hero />
       <SearchInput input={input} onChange={setInput} items={items} setItems={setFilteredItems} />
       <List items={filteredItems} />
-      <Footer />
+      <Footer link={data.site.siteMetadata.weAreHiringLink} />
     </div>
   )
 }

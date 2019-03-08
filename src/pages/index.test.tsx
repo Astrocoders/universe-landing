@@ -14,6 +14,7 @@ const query: IQueryProps = {
         hireLink: '#',
         bugLink: '#',
         githubLink: '#',
+        weAreHiringLink: '#',
       },
     },
   },

@@ -8,9 +8,8 @@ afterEach(cleanup)
 
 describe('Footer test', () => {
   it('Should render the Footer', () => {
-    const { getByTestId, getByText } = render(<Footer />)
+    const { getByText } = render(<Footer link="#" />)
 
-    expect(getByTestId('logo')).toBeVisible()
-    expect(getByText('we are hiring!')).toBeVisible()
+    expect(getByText('WE ARE HIRING!')).toBeVisible()
   })
 })

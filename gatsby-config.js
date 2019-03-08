@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    hireLink: '#',
-    bugLink: '#',
-    githubLink: '#',
+    hireLink: 'https://astrocoders.com/#hireUs',
+    bugLink: 'https://github.com/Astrocoders/universe-landing/issues',
+    githubLink: 'https://github.com/Astrocoders/universe-landing',
+    weAreHiringLink: 'https://astrocoders.com/join-us'
   },
 
   plugins: [
