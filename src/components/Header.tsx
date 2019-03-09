@@ -18,6 +18,7 @@ const Box = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: center;
 `
 
 const LeftBox = styled(Box)`
@@ -25,22 +26,13 @@ const LeftBox = styled(Box)`
   margin-left: 15px;
 `
 
-const LogoWrapper = styled.div`
-  margin-top: 16px;
-
-  @media (max-width: 515px) {
-    margin-top: 10px;
-  }
-`
-
 const LeftTextWrapper = styled.div`
-  margin-top: 14px;
-  margin-right: auto;
-  color: #ffffff;
+  margin-top: -4px;
+  color: #fff;
 
-  @media (max-width: 515px) {
+  @media (max-width: 1020px) {
     position: absolute;
-    margin-top: 25px;
+    margin-top: 16px;
     margin-left: 72px;
   }
 `
@@ -48,10 +40,12 @@ const LeftTextWrapper = styled.div`
 const StyledVector = styled.img`
   width: 20px;
   height: 12px;
-  margin-top: 25px;
 `
 
 const CenterBox = styled(Box)`
+  font-size: 16px;
+  flex: 2;
+
   @media (max-width: 870px) {
     display: none;
   }
@@ -60,15 +54,11 @@ const CenterBox = styled(Box)`
 const MiddleTextWrapper = styled.div`
   text-align: center;
   color: #ffffff;
-  margin-top: 12px;
   margin-left: 4px;
-
-  @media (max-width: 1050px) {
-    margin-top: 10px;
-  }
 `
 
 const StyledLink = styled.a`
+  white-space: nowrap;
   color: #8773e3;
   margin-left: 10px;
   text-decoration: none;
@@ -76,10 +66,6 @@ const StyledLink = styled.a`
 
 const RightBox = styled(Box)`
   justify-content: flex-end;
-`
-
-const RightIconsWrapper = styled.div`
-  display: flex;
 `
 
 const StyledIcon = styled.div`
@@ -104,37 +90,29 @@ const Header = (props: IProps) => {
   return (
     <HeaderWrapper data-testid="header">
       <LeftBox>
-        <LogoWrapper>
-          <img src={Logo} alt="Astrocoders logo" data-testid="logo" />
-        </LogoWrapper>
+        <img src={Logo} alt="Astrocoders logo" data-testid="logo" />
 
-        <LeftTextWrapper>
-          <p> / Open Source </p>
-        </LeftTextWrapper>
+        <LeftTextWrapper>/ Open Source</LeftTextWrapper>
       </LeftBox>
 
       <CenterBox data-testid="center-box">
         <StyledVector src={Vector} alt="Vector" />
 
         <MiddleTextWrapper>
-          <p>
-            Need development consulting on financial segment?
-            <StyledLink data-testid="hire-link" href={props.hireLink}>
-              Hire us
-            </StyledLink>
-          </p>
+          Need development consulting on financial segment?
+          <StyledLink data-testid="hire-link" href={props.hireLink}>
+            Hire us
+          </StyledLink>
         </MiddleTextWrapper>
       </CenterBox>
 
       <RightBox>
-        <RightIconsWrapper>
-          <a href={props.bugLink} data-testid="bug-link">
-            <StyledIcon src={Bug} />
-          </a>
-          <a href={props.githubLink} data-testid="github-link">
-            <StyledIcon src={Github} />
-          </a>
-        </RightIconsWrapper>
+        <a href={props.bugLink} data-testid="bug-link">
+          <StyledIcon src={Bug} />
+        </a>
+        <a href={props.githubLink} data-testid="github-link">
+          <StyledIcon src={Github} />
+        </a>
       </RightBox>
     </HeaderWrapper>
   )
