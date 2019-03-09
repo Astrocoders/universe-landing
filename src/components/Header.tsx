@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Bug from '../images/bug.png'
-import Github from '../images/github.png'
+import Bug from '../images/bug.svg'
+import Github from '../images/github.svg'
 import Logo from '../images/logo.png'
-import Vector from '../images/vector.png'
+import Vector from '../images/trending-up.svg'
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -51,8 +51,8 @@ const LeftTextWrapper = styled.div`
 `
 
 const StyledVector = styled.img`
-  width: 20px;
-  height: 12px;
+  width: 40px;
+  height: 24px;
 `
 
 const CenterBox = styled(Box)`
@@ -82,16 +82,21 @@ const RightBox = styled(Box)`
   justify-content: flex-end;
 `
 
-const StyledIcon = styled.div`
-  background-image: url(${(props: { src: any }) => props.src});
-  background-position: center;
-  background-repeat: no-repeat;
+const IconWrapper = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 63px;
   height: 63px;
 
   &:hover {
     background-color: #8773e3;
   }
+`
+
+const StyledIcon = styled.img`
+  width: 40px;
+  height: 40px;
 `
 
 const MobileBar = styled(HeaderWrapper)`
@@ -130,12 +135,14 @@ const Header = (props: IProps) => {
         </CenterBox>
 
         <RightBox>
-          <a href={props.bugLink} data-testid="bug-link">
-            <StyledIcon src={Bug} />
-          </a>
-          <a href={props.githubLink} data-testid="github-link">
-            <StyledIcon src={Github} />
-          </a>
+          <IconWrapper href={props.bugLink}>
+            {' '}
+            <StyledIcon src={Bug} />{' '}
+          </IconWrapper>
+          <IconWrapper href={props.githubLink}>
+            {' '}
+            <StyledIcon src={Github} />{' '}
+          </IconWrapper>
         </RightBox>
       </HeaderWrapper>
       <MobileBar>
