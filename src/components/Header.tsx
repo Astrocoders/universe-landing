@@ -43,17 +43,18 @@ const StyledVector = styled.img`
 `
 
 const CenterBox = styled(Box)`
+  justify-content: center;
   font-size: 16px;
   flex: 2;
 
-  @media (max-width: 870px) {
+  @media (max-width: 564px) {
     display: none;
   }
 `
 
 const MiddleTextWrapper = styled.div`
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   margin-left: 4px;
 `
 
@@ -80,6 +81,16 @@ const StyledIcon = styled.div`
   }
 `
 
+const MobileBar = styled(HeaderWrapper)`
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  @media (min-width: 564px) {
+    display: none;
+  }
+`
+
 export interface IProps {
   hireLink: string
   bugLink: string
@@ -88,33 +99,43 @@ export interface IProps {
 
 const Header = (props: IProps) => {
   return (
-    <HeaderWrapper data-testid="header">
-      <LeftBox>
-        <img src={Logo} alt="Astrocoders logo" data-testid="logo" />
+    <>
+      <HeaderWrapper data-testid="header">
+        <LeftBox>
+          <img src={Logo} alt="Astrocoders logo" data-testid="logo" />
+          <LeftTextWrapper> / Open Source </LeftTextWrapper>
+        </LeftBox>
 
-        <LeftTextWrapper>/ Open Source</LeftTextWrapper>
-      </LeftBox>
+        <CenterBox data-testid="center-box">
+          <StyledVector src={Vector} alt="Vector" />
+          <MiddleTextWrapper>
+            Need development consulting on financial segment?
+            <StyledLink data-testid="hire-link" href={props.hireLink}>
+              Hire us
+            </StyledLink>
+          </MiddleTextWrapper>
+        </CenterBox>
 
-      <CenterBox data-testid="center-box">
-        <StyledVector src={Vector} alt="Vector" />
-
+        <RightBox>
+          <a href={props.bugLink} data-testid="bug-link">
+            {' '}
+            <StyledIcon src={Bug} />{' '}
+          </a>
+          <a href={props.githubLink} data-testid="github-link">
+            {' '}
+            <StyledIcon src={Github} />{' '}
+          </a>
+        </RightBox>
+      </HeaderWrapper>
+      <MobileBar>
         <MiddleTextWrapper>
           Need development consulting on financial segment?
           <StyledLink data-testid="hire-link" href={props.hireLink}>
             Hire us
           </StyledLink>
         </MiddleTextWrapper>
-      </CenterBox>
-
-      <RightBox>
-        <a href={props.bugLink} data-testid="bug-link">
-          <StyledIcon src={Bug} />
-        </a>
-        <a href={props.githubLink} data-testid="github-link">
-          <StyledIcon src={Github} />
-        </a>
-      </RightBox>
-    </HeaderWrapper>
+      </MobileBar>
+    </>
   )
 }
 
