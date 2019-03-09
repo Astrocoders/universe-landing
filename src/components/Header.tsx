@@ -26,8 +26,21 @@ const LeftBox = styled(Box)`
   margin-left: 15px;
 `
 
+const StyledLogo = styled.div`
+  background-image: url(${Logo});
+  background-size: cover;
+  width: 169px;
+  height: 40px;
+
+  @media (max-width: 1020px) {
+    margin-top: -10px;
+  }
+`
+
 const LeftTextWrapper = styled.div`
-  margin-top: -4px;
+  white-space: nowrap;
+  margin-left: 5px;
+  margin-top: 4px;
   color: #fff;
 
   @media (max-width: 1020px) {
@@ -102,7 +115,7 @@ const Header = (props: IProps) => {
     <>
       <HeaderWrapper data-testid="header">
         <LeftBox>
-          <img src={Logo} alt="Astrocoders logo" data-testid="logo" />
+          <StyledLogo data-testid="logo" />
           <LeftTextWrapper> / Open Source </LeftTextWrapper>
         </LeftBox>
 
@@ -118,12 +131,10 @@ const Header = (props: IProps) => {
 
         <RightBox>
           <a href={props.bugLink} data-testid="bug-link">
-            {' '}
-            <StyledIcon src={Bug} />{' '}
+            <StyledIcon src={Bug} />
           </a>
           <a href={props.githubLink} data-testid="github-link">
-            {' '}
-            <StyledIcon src={Github} />{' '}
+            <StyledIcon src={Github} />
           </a>
         </RightBox>
       </HeaderWrapper>
