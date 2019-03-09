@@ -136,16 +136,15 @@ const Header = (props: IProps) => {
 
         <RightBox>
           <IconWrapper href={props.bugLink}>
-            {' '}
-            <StyledIcon src={Bug} />{' '}
+            <StyledIcon src={Bug} />
           </IconWrapper>
           <IconWrapper href={props.githubLink}>
-            {' '}
-            <StyledIcon src={Github} />{' '}
+            <StyledIcon src={Github} />
           </IconWrapper>
         </RightBox>
       </HeaderWrapper>
       <MobileBar>
+        <StyledVector src={Vector} alt="Vector" />
         <MiddleTextWrapper>
           Need development consulting on financial segment?
           <StyledLink data-testid="hire-link" href={props.hireLink}>
