@@ -11,6 +11,19 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Universe`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data`
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: "Universe",
