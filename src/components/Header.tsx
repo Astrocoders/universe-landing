@@ -135,10 +135,10 @@ const Header = (props: IProps) => {
         </CenterBox>
 
         <RightBox>
-          <IconWrapper href={props.bugLink}>
+          <IconWrapper href={props.bugLink} data-testid="bug-link">
             <StyledIcon src={Bug} />
           </IconWrapper>
-          <IconWrapper href={props.githubLink}>
+          <IconWrapper href={props.githubLink} data-testid="github-link">
             <StyledIcon src={Github} />
           </IconWrapper>
         </RightBox>

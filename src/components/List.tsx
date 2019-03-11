@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
-import { IPackage } from '../utils/data'
+import { IPackage } from '../pages/index'
 import ListItem from './ListItem'
 
 const Background = styled.div`
@@ -70,13 +70,18 @@ const List = (props: IProps) => {
   return (
     <Background>
       <ListWrapper data-testid="list" expanded={expanded}>
-        <StyledFlipper flipKey={map(item => item.title, props.items).join('')}>
+        <StyledFlipper flipKey={map(item => item.node.title, props.items).join('')}>
           {props.items.length === 0 ? (
             <TextWrapper> No results </TextWrapper>
           ) : (
             map(
               item => (
-                <ListItem title={item.title} description={item.description} id={item.id} url={item.url} key={item.id} />
+                <ListItem
+                  title={item.node.title}
+                  description={item.node.description}
+                  url={item.node.url}
+                  key={item.node.title}
+                />
               ),
               props.items,
             )
