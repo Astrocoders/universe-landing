@@ -2,7 +2,7 @@ import React from 'react'
 import { Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
 
-import { IPackage } from '../utils/data'
+import { IPackage } from '../pages/index'
 import truncate from '../utils/truncate'
 
 const Card = styled.div`
@@ -33,9 +33,15 @@ const CardDescription = styled.div`
   color: #afafaf;
 `
 
-const ListItem = (props: IPackage) => {
+export interface IProps {
+  title: string
+  description: string
+  url: string
+}
+
+const ListItem = (props: IProps) => {
   return (
-    <Flipped flipId={props.id}>
+    <Flipped flipId={props.title}>
       <Card data-testid="list-item" onClick={() => window.open(props.url, '_blank')}>
         <CardTitle>
           <p> {props.title} </p>

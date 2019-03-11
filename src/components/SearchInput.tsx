@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import SearchIcon from '../images/search-icon.png'
-import { IPackage } from '../utils/data'
+import { IPackage } from '../pages/index'
 
 const Wrapper = styled.div<{ focused: boolean }>`
   max-width: 50%;
@@ -66,8 +66,8 @@ const SearchInput = (props: IProps) => {
   const filterPackages = () => {
     props.setItems(
       filter(item => {
-        const title = item.title.toLowerCase()
-        const description = item.description ? item.description.toLowerCase() : ''
+        const title = item.node.title.toLowerCase()
+        const description = item.node.description ? item.node.description.toLowerCase() : ''
         const input = props.input.toLowerCase()
 
         return title.includes(input) || description.includes(input)
