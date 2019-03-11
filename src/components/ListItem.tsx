@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { IPackage } from '../utils/data'
 import truncate from '../utils/truncate'
 
-const Card = styled.a`
+const Card = styled.div`
   width: 180px;
   height: 180px;
   padding: 20px;
@@ -18,6 +18,7 @@ const Card = styled.a`
 
   &:hover {
     box-shadow: 0px 0px 0px 2px rgba(135, 115, 227, 1);
+    cursor: pointer;
   }
 `
 
@@ -35,7 +36,7 @@ const CardDescription = styled.div`
 const ListItem = (props: IPackage) => {
   return (
     <Flipped flipId={props.id}>
-      <Card data-testid="list-item" href={props.url}>
+      <Card data-testid="list-item" onClick={() => window.open(props.url, '_blank')}>
         <CardTitle>
           <p> {props.title} </p>
         </CardTitle>

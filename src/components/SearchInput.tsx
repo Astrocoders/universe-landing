@@ -30,7 +30,8 @@ const SearchIconWrapper = styled.div`
 const Input = styled.input`
   background-color: inherit;
   border: none;
-  height: 74px;
+  height: 65px;
+  padding: 0px;
   margin-left: 5px;
   width: 90%;
   font-size: 16px;

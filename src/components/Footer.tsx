@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Logo from '../images/astro-logo-micro.png'
 
 const Wrapper = styled.div`
+  position: sticky;
+  bottom: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
   height: 63px;
 `
 
-const TextWrapper = styled.div`
+const TextWrapper = styled.a`
   font-weight: bold;
   background-color: #000;
   color: #fff;
@@ -23,12 +25,22 @@ const TextWrapper = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 100ms linear;
+
+  &:hover {
+    background-color: #8773e3;
+  }
 `
 
-const Footer = () => {
+export interface IProps {
+  link: string
+}
+
+const Footer = (props: IProps) => {
   return (
     <Wrapper data-testid="footer">
-      <TextWrapper> WE ARE HIRING! </TextWrapper>
+      <TextWrapper href={props.link}> WE ARE HIRING! </TextWrapper>
     </Wrapper>
   )
 }

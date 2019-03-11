@@ -15,6 +15,7 @@ const Background = styled.div`
 `
 
 const ListWrapper = styled.div<{ expanded: boolean }>`
+  display: flex;
   margin-top: 38px;
   width: 70%;
   min-height: 460px;
@@ -30,6 +31,15 @@ const StyledFlipper = styled(Flipper)`
     justify-content: center;
     flex-wrap: wrap;
   }
+`
+
+const TextWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #5c5c5c;
 `
 
 const ExpandButton = styled.a`
@@ -61,11 +71,15 @@ const List = (props: IProps) => {
     <Background>
       <ListWrapper data-testid="list" expanded={expanded}>
         <StyledFlipper flipKey={map(item => item.title, props.items).join('')}>
-          {map(
-            item => (
-              <ListItem title={item.title} description={item.description} id={item.id} url={item.url} key={item.id} />
-            ),
-            props.items,
+          {props.items.length === 0 ? (
+            <TextWrapper> No results </TextWrapper>
+          ) : (
+            map(
+              item => (
+                <ListItem title={item.title} description={item.description} id={item.id} url={item.url} key={item.id} />
+              ),
+              props.items,
+            )
           )}
         </StyledFlipper>
       </ListWrapper>
