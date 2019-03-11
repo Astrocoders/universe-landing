@@ -10,9 +10,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  height: 63px;
 `
 
 const TextWrapper = styled.a`
