@@ -2,15 +2,13 @@ import 'jest-dom/extend-expect'
 import React from 'react'
 import { cleanup, render } from 'react-testing-library'
 
-import { IPackage } from '../utils/data'
-import ListItem from './ListItem'
+import ListItem, { IProps } from './ListItem'
 
 afterEach(cleanup)
 
-const props: IPackage = {
+const props: IProps = {
   title: "ListItem's title",
   description: "ListItem's description",
-  id: '42',
   url: '#',
 }
 

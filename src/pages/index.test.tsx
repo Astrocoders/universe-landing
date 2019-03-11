@@ -2,7 +2,6 @@ import 'jest-dom/extend-expect'
 import React from 'react'
 import { cleanup, fireEvent, render } from 'react-testing-library'
 
-import { IPackage } from '../utils/data'
 import Home, { IQueryProps } from './index'
 
 afterEach(cleanup)
