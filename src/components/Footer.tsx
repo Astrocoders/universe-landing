@@ -27,6 +27,7 @@ const TextWrapper = styled.a`
 
   &:hover {
     background-color: #8773e3;
+    cursor: pointer;
   }
 `
 
@@ -37,7 +38,7 @@ export interface IProps {
 const Footer = (props: IProps) => {
   return (
     <Wrapper data-testid="footer">
-      <TextWrapper href={props.link}> WE ARE HIRING! </TextWrapper>
+      <TextWrapper onClick={() => window.open(props.link, '_blank')}> WE ARE HIRING! </TextWrapper>
     </Wrapper>
   )
 }

@@ -76,6 +76,10 @@ const StyledLink = styled.a`
   color: #8773e3;
   margin-left: 10px;
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const RightBox = styled(Box)`
@@ -91,6 +95,7 @@ const IconWrapper = styled.a`
 
   &:hover {
     background-color: #8773e3;
+    cursor: pointer;
   }
 `
 
@@ -128,17 +133,17 @@ const Header = (props: IProps) => {
           <StyledVector src={Vector} alt="Vector" />
           <MiddleTextWrapper>
             Need development consulting on financial segment?
-            <StyledLink data-testid="hire-link" href={props.hireLink}>
+            <StyledLink data-testid="hire-link" onClick={() => window.open(props.hireLink, '_blank')}>
               Hire us
             </StyledLink>
           </MiddleTextWrapper>
         </CenterBox>
 
         <RightBox>
-          <IconWrapper href={props.bugLink} data-testid="bug-link">
+          <IconWrapper data-testid="bug-link" onClick={() => window.open(props.bugLink, '_blank')}>
             <StyledIcon src={Bug} />
           </IconWrapper>
-          <IconWrapper href={props.githubLink} data-testid="github-link">
+          <IconWrapper data-testid="github-link" onClick={() => window.open(props.githubLink, '_blank')}>
             <StyledIcon src={Github} />
           </IconWrapper>
         </RightBox>

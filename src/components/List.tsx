@@ -54,8 +54,10 @@ const ExpandButton = styled.a`
   background-color: rgba(135, 115, 227, 0.2);
   margin-top: 20px;
   border-radius: 20px;
+  transition: background-color linear 100ms;
 
   &:hover {
+    background-color: rgba(135, 115, 227, 0.4);
     cursor: pointer;
   }
 `
