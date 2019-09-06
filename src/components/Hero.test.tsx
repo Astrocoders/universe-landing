@@ -1,6 +1,6 @@
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
+import { cleanup, render } from '@testing-library/react'
 import React from 'react'
-import { cleanup, render } from 'react-testing-library'
 
 import Hero from './Hero'
 

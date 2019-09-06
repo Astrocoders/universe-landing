@@ -1,8 +1,8 @@
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
+import { cleanup, fireEvent, render } from '@testing-library/react'
 import React from 'react'
-import { cleanup, fireEvent, render } from 'react-testing-library'
 
-import SearchInput, { IProps } from './SearchInput'
+import SearchInput from './SearchInput'
 
 afterEach(cleanup)
 

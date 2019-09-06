@@ -152,7 +152,7 @@ const Header = (props: IProps) => {
         <StyledVector src={Vector} alt="Vector" />
         <MiddleTextWrapper>
           Need development consulting on financial segment?
-          <StyledLink data-testid="hire-link" href={props.hireLink}>
+          <StyledLink data-testid="hire-link-mobile" href={props.hireLink}>
             Hire us
           </StyledLink>
         </MiddleTextWrapper>
