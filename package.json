@@ -1,22 +1,35 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "universe-landing",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Landing page for universe - finding bindings of ReasonML to JS",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.1.11",
+    "@types/node": "^11.9.5",
+    "@types/ramda": "^0.25.51",
+    "@types/react": "^16.8.5",
+    "@types/react-dom": "^16.8.2",
+    "@types/styled-components": "^4.1.11",
+    "axios": "^0.18.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.1.15",
     "gatsby-image": "^2.0.29",
-    "gatsby-plugin-manifest": "^2.0.18",
+    "gatsby-plugin-google-fonts": "0.0.4",
+    "gatsby-plugin-manifest": "^2.0.22",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.21",
-    "gatsby-source-filesystem": "^2.0.21",
+    "gatsby-plugin-styled-components": "^3.0.6",
+    "gatsby-plugin-typescript": "^2.0.9",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-json": "^2.1.8",
     "gatsby-transformer-sharp": "^2.1.14",
     "prop-types": "^15.7.2",
+    "ramda": "^0.26.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0"
+    "react-flip-toolkit": "^6.5.7",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.1.3"
   },
   "keywords": [
     "gatsby"
@@ -27,13 +40,71 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --fix --project .",
+    "lint:staged": "lint-staged",
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "pre-commit": [
+    "type-check",
+    "lint:staged"
+  ],
+  "lint-staged": {
+    "*.{ts,tsx,.test.tsx}": [
+      "npm run lint",
+      "git add"
+    ]
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*\\.([tj]sx?)|(\\.|/)(test|spec))\\.([tj]sx?)$",
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
+      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/utils/fileMock.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gatsby)/)"
+    ],
+    "globals": {
+      "__PATH_PREFIX__": ""
+    },
+    "testURL": "http://localhost",
+    "setupFiles": [
+      "<rootDir>/src/utils/loadershim.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@types/jest": "^24.0.9",
+    "babel-jest": "^24.1.0",
+    "babel-preset-gatsby": "^0.1.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.1.0",
+    "jest-dom": "^3.1.2",
+    "lint-staged": "^8.1.4",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.16.4",
+    "react-test-renderer": "^16.8.3",
+    "react-testing-library": "^5.9.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3333"
   }
 }
