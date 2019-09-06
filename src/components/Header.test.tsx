@@ -1,6 +1,6 @@
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
+import { cleanup, render } from '@testing-library/react'
 import React from 'react'
-import { cleanup, render } from 'react-testing-library'
 
 import Header, { IProps } from './Header'
 
@@ -21,6 +21,7 @@ describe('Header test', () => {
     expect(getByTestId('logo')).toBeVisible()
     expect(getByTestId('center-box')).toBeVisible()
     expect(getByTestId('hire-link')).toBeVisible()
+    expect(getByTestId('hire-link-mobile')).toBeVisible()
     expect(getByTestId('bug-link')).toBeVisible()
     expect(getByTestId('github-link')).toBeVisible()
   })

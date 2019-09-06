@@ -1,6 +1,6 @@
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
+import { cleanup, fireEvent, render } from '@testing-library/react'
 import React from 'react'
-import { cleanup, fireEvent, render } from 'react-testing-library'
 
 import Home, { IQueryProps } from './index'
 
@@ -39,7 +39,7 @@ const query: IQueryProps = {
 
 describe('Home test', () => {
   it('Should render the home page', async () => {
-    const { getByTestId, queryByTestId } = render(<Home {...query} />)
+    const { getByTestId } = render(<Home {...query} />)
 
     expect(getByTestId('header')).toBeVisible()
     expect(getByTestId('hero')).toBeVisible()
@@ -50,7 +50,7 @@ describe('Home test', () => {
   })
 
   it('Should filter the packages by title and description', () => {
-    const { getByTestId, queryByText, getByText } = render(<Home {...query} />)
+    const { getByTestId, queryByText } = render(<Home {...query} />)
     const input = getByTestId('search-input') as HTMLInputElement
     fireEvent.change(input, { target: { value: 'top' } })
 
