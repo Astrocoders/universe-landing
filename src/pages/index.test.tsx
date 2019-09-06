@@ -16,7 +16,7 @@ const query: IQueryProps = {
         weAreHiringLink: '#',
       },
     },
-    allUniverse: {
+    allUniverseJson: {
       edges: [
         {
           node: {

@@ -1,6 +1,4 @@
-import axios from 'axios'
 import { graphql } from 'gatsby'
-import { map } from 'ramda'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
@@ -29,7 +27,7 @@ export interface IQueryProps {
         weAreHiringLink: string
       }
     }
-    allUniverse: {
+    allUniverseJson: {
       edges: IPackage[]
     }
   }
@@ -48,7 +46,7 @@ const Content = styled.div`
 
 const Home = ({ data }: IQueryProps) => {
   const [input, setInput] = useState('')
-  const [filteredItems, setFilteredItems] = useState<IPackage[]>(data.allUniverse.edges)
+  const [filteredItems, setFilteredItems] = useState<IPackage[]>(data.allUniverseJson.edges)
 
   return (
     <>
@@ -61,7 +59,12 @@ const Home = ({ data }: IQueryProps) => {
             githubLink={data.site.siteMetadata.githubLink}
           />
           <Hero />
-          <SearchInput input={input} onChange={setInput} items={data.allUniverse.edges} setItems={setFilteredItems} />
+          <SearchInput
+            input={input}
+            onChange={setInput}
+            items={data.allUniverseJson.edges}
+            setItems={setFilteredItems}
+          />
           <List items={filteredItems} />
         </Content>
         <Footer link={data.site.siteMetadata.weAreHiringLink} />
@@ -80,7 +83,7 @@ export const query = graphql`
         weAreHiringLink
       }
     }
-    allUniverse {
+    allUniverseJson {
       edges {
         node {
           title
